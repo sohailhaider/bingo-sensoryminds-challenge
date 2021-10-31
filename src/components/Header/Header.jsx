@@ -1,5 +1,5 @@
 import React from "react";
-import { Alert, Col } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 
 function Header() {
   return (
@@ -9,13 +9,13 @@ function Header() {
         This is a basic Bingo card, where user can select the output based on
         some random call.
       </h5>
-      <Alert variant={"warning"}>
+      <p>
         <i>
           Just one assumptions, for proper multiplayer game I needed a server
           where I could create a game session but here just for demonstration of
           reactjs skills I've limitized the implementation to just frontend.{" "}
         </i>
-      </Alert>
+      </p>
     </Col>
   );
 }
