@@ -6,7 +6,7 @@ import styled from "styled-components";
 const BingoCardCol = styled.td`
   height: 100px;
   width: 20%;
-  border: 3px dashed grey;
+  border: 1px dashed grey;
   cursor: pointer;
   transition: ${(props) => (props.isMarked ? "color 0.3s linear" : "")};
   transition: ${(props) => (props.isMarked ? "background 0.3s linear" : "")};
