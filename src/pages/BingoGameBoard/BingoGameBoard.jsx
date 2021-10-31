@@ -1,12 +1,13 @@
 import { Col, Table } from "react-bootstrap";
 import React from "react";
 import { completeDataSet } from "../../utilities/data";
-import { generateGameCardBoard } from "../../utilities/generator";
-import BingoCard from "../../components/BingoCard";
+// import { generateGameCardBoard } from "../../utilities/generator";
+import BingoCardItem from "../../components/BingoCardItem";
+import BingoGameController from "../../utilities/BingoGameController";
 
-const BingoCardBoard = () => {
+const BingoGameBoard = () => {
   const [cardsData, setCardsData] = React.useState(
-    generateGameCardBoard(completeDataSet)
+    BingoGameController.generateGameCardBoard(completeDataSet)
   );
 
   //single responsibility says it it should have only 1 purpose.
@@ -18,7 +19,7 @@ const BingoCardBoard = () => {
   // this will mark and do everything related to this click event.
   const handleOnClick = (i, j) => {
     toggleMarked(i, j);
-    // console.log(cardsData[i][j]);
+    console.log(BingoGameController.checkWinConditions(cardsData));
   };
 
   return (
@@ -30,8 +31,8 @@ const BingoCardBoard = () => {
               return (
                 <tr align="center" key={`row-${indexI}`}>
                   {row.map((col, indexJ) => (
-                    <BingoCard
-                      key={`colF-${indexJ}`}
+                    <BingoCardItem
+                      key={`col-${indexJ}`}
                       {...col}
                       handleOnClick={() => handleOnClick(indexI, indexJ)}
                     />
@@ -45,4 +46,4 @@ const BingoCardBoard = () => {
   );
 };
 
-export default BingoCardBoard;
+export default BingoGameBoard;

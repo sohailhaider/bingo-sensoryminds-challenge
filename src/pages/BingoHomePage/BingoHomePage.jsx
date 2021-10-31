@@ -1,6 +1,6 @@
 import { Row, Col } from "react-bootstrap";
 import React from "react";
-import BingoCardBoard from "../BingoCardBoard";
+import BingoGameBoard from "../BingoGameBoard";
 
 const BingoHomePage = () => {
   return (
@@ -11,7 +11,7 @@ const BingoHomePage = () => {
         </Col>
       </Row>
       <Row>
-        <BingoCardBoard />
+        <BingoGameBoard />
       </Row>
     </>
   );

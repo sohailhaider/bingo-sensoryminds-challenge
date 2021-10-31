@@ -18,7 +18,12 @@ export const generateGameCardBoard = (data, cardDimension = 5) => {
         i === Math.floor(cardDimension / 2) &&
         j === Math.floor(cardDimension / 2)
       ) {
-        bingoCard[i][j] = { text: "", icon: "", isMarked: false };
+        bingoCard[i][j] = {
+          text: "free slot",
+          icon: "",
+          isMarked: true,
+          isDisabled: true,
+        };
       } else {
         let picked = getRandomNumber(0, _data.length);
         bingoCard[i][j] = _data[picked];
