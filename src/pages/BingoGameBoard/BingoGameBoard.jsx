@@ -1,14 +1,15 @@
 import { Col, Table } from "react-bootstrap";
-import React from "react";
+import React, { useState } from "react";
 import { completeDataSet } from "../../utilities/data";
-// import { generateGameCardBoard } from "../../utilities/generator";
 import BingoCardItem from "../../components/BingoCardItem";
 import BingoGameController from "../../utilities/BingoGameController";
+import BingoWinner from "../../components/BingoWinner";
 
 const BingoGameBoard = () => {
-  const [cardsData, setCardsData] = React.useState(
+  const [cardsData, setCardsData] = useState(
     BingoGameController.generateGameCardBoard(completeDataSet)
   );
+  const [isWon, setIsWon] = useState();
 
   //single responsibility says it it should have only 1 purpose.
   const toggleMarked = (i, j) => {
@@ -19,11 +20,12 @@ const BingoGameBoard = () => {
   // this will mark and do everything related to this click event.
   const handleOnClick = (i, j) => {
     toggleMarked(i, j);
-    console.log(BingoGameController.checkWinConditions(cardsData));
+    setIsWon(BingoGameController.checkWinConditions(cardsData));
   };
 
   return (
     <Col>
+      {isWon && <BingoWinner />}
       <Table responsive>
         <tbody>
           {cardsData &&

@@ -7,7 +7,9 @@ const BingoHomePage = () => {
     <>
       <Row>
         <Col span={24} align="center">
-          <h1>Simle Bingo Cards</h1>
+          <h1 className="animate__animated animate__bounce">
+            Simple Bingo Cards
+          </h1>
         </Col>
       </Row>
       <Row>
